@@ -1,0 +1,23 @@
+# Node modules (frontend)
+node_modules/
+dist/
+
+# Python (backend)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+root_env/
+
+# OS
+.DS_Store
+
+# Docker
+*.log
+
+# VSCode
+.vscode/
+
+# Environment files
+.env*
