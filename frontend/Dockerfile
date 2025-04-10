@@ -4,4 +4,4 @@ RUN npm install
 COPY frontend/ ./
 RUN npm run build
 RUN npm install -g serve
-docker build -t vanrajsinh/react-app .
+docker build -t vanrajsinh/react-app ./frontend
