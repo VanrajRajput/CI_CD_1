@@ -13,7 +13,9 @@ function FetchData() {
     <div style={{ padding: "20px" }}>
       <h2>All Names</h2>
       <ul>
-        {names.map((n) => <li key={n.id}>{n.name}</li>)}
+        {names.map((n) => (
+          <li key={n.id}>{n.name ? n.name : "(Empty name)"}</li>
+        ))}
       </ul>
     </div>
   );

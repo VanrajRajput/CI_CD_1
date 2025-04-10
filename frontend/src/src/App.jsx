@@ -1,22 +1,15 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FetchData from './FetchData';
+import Home from './Home'; // This would be your name input page
 
 function App() {
-  const [name, setName] = useState("");
-
-  const addName = async () => {
-    await fetch(`http://localhost:8000/add?name=${name}`, { method: "POST" });
-    setName("");
-    alert("Name added!");
-  };
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Name Input</h1>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
-      <button onClick={addName}>Add</button>
-      <a href="/fetch-data"><button>Fetch Data</button></a>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/fetch-data" element={<FetchData />} />
+      </Routes>
+    </Router>
   );
 }
 
