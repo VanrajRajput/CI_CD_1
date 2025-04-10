@@ -1,26 +1,26 @@
-# Use the official node image
-FROM node:18
+# Use Node Alpine as base image
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and lock file
+# Copy package files
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the app
+# Copy all frontend source files
 COPY . .
 
-# Build the React (Vite) app
+# Build the app
 RUN npm run build
 
-# Use serve to serve the build folder
+# Install serve to serve built app
 RUN npm install -g serve
 
-# Expose the port you want the app to run on (optional, useful in Docker Compose)
+# Expose desired port
 EXPOSE 3000
 
-# Command to run the app
+# Serve the app
 CMD ["serve", "-s", "dist", "-l", "3000"]

@@ -66,7 +66,7 @@ jobs:
 
       - name: Build and Push Frontend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/react-app ./frontend
+         docker build -t ${{ secrets.DOCKER_USERNAME }}/react-app ./frontend/src
           docker push ${{ secrets.DOCKER_USERNAME }}/react-app
 
       # Optional: deploy to VPS or cloud platform here
